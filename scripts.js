@@ -34,10 +34,10 @@ function calTrip(){
     function evaluate(operation) {
       return function(tripDistance, tripMpg, tripSpeed) {
         if (tripSpeed <= 60 ) {
-          return tripDistance / tripMpg * tripCost;
+          return tripDistance / tripMpg * tripCost
         }
         else if (tripSpeed > 60) {
-          return tripDistance / (tripMpg - (tripSpeed - 60) * 2) * tripCost;
+          return tripDistance / (tripMpg - (tripSpeed - 60) * 2) * tripCost
         }
       };
     }
@@ -52,22 +52,13 @@ function calBMI() {
 }
 
 
-
-
 function calMortgage() {
-  var Loan = Number(document.getElementById('mortgage-loan').value);
-  var Apr = Number(document.getElementById('mortgage-apr').value);
-  var Term = Number(document.getElementById('mortgage-term').value);
-  document.getElementById('mortgage-answer-alert').innerHTML =
-  Loan * Apr/100 * Math.pow(1+(Apr/100/12), Term) / (Math.pow(1+(Apr/100/12), Term) -1)/12;
+  var mortgageLoan = Number(document.getElementById('mortgage-loan').value);
+  var mortgageApr = Number(document.getElementById('mortgage-apr').value);
+  var mortgageTerm = Number(document.getElementById('mortgage-term').value);
+  document.getElementById('mortgage-answer-alert').innerHTML = mortgageLoan * mortgageApr *((1+mortgageApr)^mortgageTerm) / (((1+mortgageApr)^mortgageTerm)-1); 
 
- // var Loan = Number(document.getElementById('mortgage-loan').value);
- // var Apr = Number(document.getElementById('mortgage-apr').value);
- // var Term = Number(document.getElementById('mortgage-term').value);
- // return Loan * Apr/100 * Math.pow((1+(Apr/100)/12), Term) / (Math.pow((1+(Apr/100/12), Term) -1)/12;
- // document.getElementById('mortgage-answer-alert').innerHTML = (calMortgage)
 }
- 
 
 function addClickListener(element,i) {
   element.addEventListener('click', function(){
